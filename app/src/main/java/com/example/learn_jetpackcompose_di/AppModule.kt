@@ -39,4 +39,11 @@ class AppModule {
     ): Retrofit = Retrofit.Builder().baseUrl(apiUrl).addConverterFactory(converterFactory).build()
 
 
+    @Singleton
+    @Provides
+    fun provideGithubService(
+        retrofit: Retrofit
+    ) : GithubService = retrofit.create(GithubService::class.java)
+
+
 }
