@@ -15,6 +15,8 @@ import androidx.compose.ui.Modifier
 import com.example.learn_jetpackcompose_di.ui.theme.LearnJetpackComposeDITheme
 import com.example.learn_jetpackcompose_di.viewmodel.GithubViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import androidx.lifecycle.viewmodel.compose.viewModel
+
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -24,14 +26,14 @@ class MainActivity : ComponentActivity() {
             LearnJetpackComposeDITheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-
+                    ReposScreen()
                 }
             }
         }
     }
 }
 @Composable
-fun ReposScreen(viewModel: GithubViewModel){
+fun ReposScreen(viewModel: GithubViewModel = viewModel()){
     LazyColumn {
         item {
             Button(onClick = {
