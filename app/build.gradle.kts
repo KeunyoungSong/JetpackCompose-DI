@@ -76,5 +76,8 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson.converter)
 
+    // ViewModel
+    implementation(libs.viewmodel.compose)
+
 
 }
