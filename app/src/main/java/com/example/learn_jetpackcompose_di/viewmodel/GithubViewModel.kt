@@ -16,7 +16,7 @@ class GithubViewModel @Inject constructor (private val githubService: GithubServ
     fun getRepos(){
         repos.clear()
         viewModelScope.launch {
-            val result = githubService.listRepos("dalinaum")
+            val result = githubService.listRepos("KeunyoungSong")
             repos.addAll(result)
         }
     }
