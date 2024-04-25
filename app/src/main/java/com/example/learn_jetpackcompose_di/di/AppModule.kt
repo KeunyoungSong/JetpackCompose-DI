@@ -1,5 +1,6 @@
-package com.example.learn_jetpackcompose_di
+package com.example.learn_jetpackcompose_di.di
 
+import com.example.learn_jetpackcompose_di.service.GithubService
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -8,7 +9,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Converter
-import retrofit2.Converter.Factory
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Named
