@@ -8,6 +8,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Converter
+import retrofit2.Converter.Factory
+import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Named
 import javax.inject.Singleton
@@ -15,6 +17,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 @Module
 class AppModule {
+
     @Singleton
     @Provides
     @Named("API_URI")
@@ -28,4 +31,12 @@ class AppModule {
     @Singleton
     @Provides
     fun provideConverterFactory(gson: Gson): Converter.Factory = GsonConverterFactory.create(gson)
+
+    @Singleton
+    @Provides
+    fun provideRetrofit(
+        @Named("API_URI") apiUrl: String, converterFactory: Converter.Factory
+    ): Retrofit = Retrofit.Builder().baseUrl(apiUrl).addConverterFactory(converterFactory).build()
+
+
 }
